@@ -1,0 +1,38 @@
+{
+
+  "DATABASE":{
+  "server": "10.141.44.38",
+   "db_name": "Teal_PDI03",
+    "user":"sa",
+    "pwd":"teal@123"
+ },
+
+  "PLC1": {
+    "server_config": {
+      "end_point": "opc.tcp://10.141.45.160:4840"
+    },
+    "tags": {
+      "OP10|ok_parts": "ns=3;s=\"O10IOTDB\".\"IOTData\".\"totalCountOkParts\"",
+      "OP10|nok_parts": "ns=3;s=\"O10IOTDB\".\"IOTData\".\"totalCountNokParts\"",
+      "OP10|cycle_time": "ns=3;s=\"O10IOTDB\".\"IOTData\".\"runningCycleTime\"",
+      "OP10|model_no": "ns=3;s=\"O10IOTDB\".\"IOTData\".\"modelNumber\"",
+      "OP10|Alm": "ns=3;s=\"O10IOTDB\".\"IOTData\".\"alarm\"",
+      "OP10|takt_time": "ns=3;s=\"O10IOTDB\".\"IOTData\".\"runningCycleTime\"",
+      "OP30|ok_parts": "ns=3;s=\"OP30IOTDB\".\"IOTData\".\"totalCountOkParts\"",
+      "OP30|nok_parts": "ns=3;s=\"OP30IOTDB\".\"IOTData\".\"totalCountNokParts\"",
+      "OP30|cycle_time": "ns=3;s=\"OP30IOTDB\".\"IOTData\".\"runningCycleTime\"",
+      "OP30|model_no": "ns=3;s=\"OP30IOTDB\".\"IOTData\".\"modelNumber\"",
+      "OP30|takt_time": "ns=3;s=\"OP30IOTDB\".\"IOTData\".\"runningCycleTime\"",
+      "OP20|ok_parts": "ns=3;s=\"O20IOTDB\".\"IOTData\".\"totalCountOkParts\"",
+      "OP20|nok_parts": "ns=3;s=\"O20IOTDB\".\"IOTData\".\"totalCountNokParts\"",
+      "OP20|cycle_time": "ns=3;s=\"O20IOTDB\".\"IOTData\".\"runningCycleTime\"",
+      "OP20|model_no": "ns=3;s=\"O20IOTDB\".\"IOTData\".\"modelNumber\"",
+      "OP20|takt_time": "ns=3;s=\"O20IOTDB\".\"IOTData\".\"runningCycleTime\"",
+      "OP40|ok_parts": "ns=3;s=\"OP40IOTDB\".\"IOTData\".\"totalCountOkParts\"",
+      "OP40|nok_parts": "ns=3;s=\"OP40IOTDB\".\"IOTData\".\"totalCountNokParts\"",
+      "OP40|cycle_time": "ns=3;s=\"OP40IOTDB\".\"IOTData\".\"runningCycleTime\"",
+      "OP40|model_no": "ns=3;s=\"OP40IOTDB\".\"IOTData\".\"modelNumber\"",
+      "OP40|takt_time": "ns=3;s=\"OP40IOTDB\".\"IOTData\".\"runningCycleTime\""
+    }
+  }
+}

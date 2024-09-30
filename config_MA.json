@@ -1,0 +1,242 @@
+{
+  "DATABASE": {
+    "server": "10.141.44.38",
+    "db_name": "Teal_MA01",
+    "user": "sa",
+    "pwd": "teal@123"
+  },
+
+  "PLC2": {
+    "server_config": {
+      "end_point": "opc.tcp://10.141.44.39:4840"
+    },
+    "tags": {
+      "OP50|ok_parts": "ns=3;s=\"IOTOP50DB\".\"IOTData\".\"totalCountOkParts\"",
+      "OP50|nok_parts": "ns=3;s=\"IOTOP50DB\".\"IOTData\".\"totalCountNokParts\"",
+      "OP50|cycle_time": "ns=3;s=\"IOTOP50DB\".\"IOTData\".\"runningCycleTime\"",
+      "OP50|model_no": "ns=3;s=\"IOTOP50DB\".\"IOTData\".\"modelNumber\"",
+      "OP50|Alm": "ns=3;s=\"IOTOP50DB\".\"IOTData\".\"alarm\"",
+      "OP50|takt_time": "ns=3;s=\"IOTOP50DB\".\"IOTData\".\"runningCycleTime\"",
+      "OP50|EngineData": "ns=3;s=\"IOTOP50DB\".\"IOTData\".\"EngineData\"",
+      "OP60|ok_parts": "ns=3;s=\"IOTOP60DB\".\"IOTData\".\"totalCountOkParts\"",
+      "OP60|nok_parts": "ns=3;s=\"IOTOP60DB\".\"IOTData\".\"totalCountNokParts\"",
+      "OP60|cycle_time": "ns=3;s=\"IOTOP60DB\".\"IOTData\".\"runningCycleTime\"",
+      "OP60|model_no": "ns=3;s=\"IOTOP60DB\".\"IOTData\".\"modelNumber\"",
+      "OP60|takt_time": "ns=3;s=\"IOTOP60DB\".\"IOTData\".\"runningCycleTime\"",
+      "OP60|EngineData": "ns=3;s=\"IOTOP60DB\".\"IOTData\".\"EngineData\"",
+      "OP60|Alm": "ns=3;s=\"IOTOP60DB\".\"IOTData\".\"alarm\"",
+      "OP70|ok_parts": "ns=3;s=\"IOTOP70DB\".\"IOTData\".\"totalCountOkParts\"",
+      "OP70|nok_parts": "ns=3;s=\"IOTOP70DB\".\"IOTData\".\"totalCountNokParts\"",
+      "OP70|cycle_time": "ns=3;s=\"IOTOP70DB\".\"IOTData\".\"runningCycleTime\"",
+      "OP70|model_no": "ns=3;s=\"IOTOP70DB\".\"IOTData\".\"modelNumber\"",
+      "OP70|takt_time": "ns=3;s=\"IOTOP70DB\".\"IOTData\".\"runningCycleTime\"",
+      "OP70|EngineData": "ns=3;s=\"IOTOP70DB\".\"IOTData\".\"EngineData\"",
+      "OP70|Alm": "ns=3;s=\"IOTOP70DB\".\"IOTData\".\"alarm\"",
+      "OP80|ok_parts": "ns=3;s=\"IOTOP80DB\".\"IOTData\".\"totalCountOkParts\"",
+      "OP80|nok_parts": "ns=3;s=\"IOTOP80DB\".\"IOTData\".\"totalCountNokParts\"",
+      "OP80|cycle_time": "ns=3;s=\"IOTOP80DB\".\"IOTData\".\"runningCycleTime\"",
+      "OP80|model_no": "ns=3;s=\"IOTOP80DB\".\"IOTData\".\"modelNumber\"",
+      "OP80|takt_time": "ns=3;s=\"IOTOP80DB\".\"IOTData\".\"runningCycleTime\"",
+      "OP80|EngineData": "ns=3;s=\"IOTOP80DB\".\"IOTData\".\"EngineData\"",
+      "OP80|Alm": "ns=3;s=\"IOTOP80DB\".\"IOTData\".\"alarm\"",
+      "OP90|ok_parts": "ns=3;s=\"IOTOP90DB\".\"IOTData\".\"totalCountOkParts\"",
+      "OP90|nok_parts": "ns=3;s=\"IOTOP90DB\".\"IOTData\".\"totalCountNokParts\"",
+      "OP90|cycle_time": "ns=3;s=\"IOTOP90DB\".\"IOTData\".\"runningCycleTime\"",
+      "OP90|model_no": "ns=3;s=\"IOTOP90DB\".\"IOTData\".\"modelNumber\"",
+      "OP90|takt_time": "ns=3;s=\"IOTOP90DB\".\"IOTData\".\"runningCycleTime\"",
+      "OP90|EngineData": "ns=3;s=\"IOTOP90DB\".\"IOTData\".\"EngineData\"",
+      "OP90|Alm": "ns=3;s=\"IOTOP90DB\".\"IOTData\".\"alarm\"",
+      "OP100|ok_parts": "ns=3;s=\"IOTOP100DB\".\"IOTData\".\"totalCountOkParts\"",
+      "OP100|nok_parts": "ns=3;s=\"IOTOP100DB\".\"IOTData\".\"totalCountNokParts\"",
+      "OP100|cycle_time": "ns=3;s=\"IOTOP100DB\".\"IOTData\".\"runningCycleTime\"",
+      "OP100|model_no": "ns=3;s=\"IOTOP100DB\".\"IOTData\".\"modelNumber\"",
+      "OP100|takt_time": "ns=3;s=\"IOTOP100DB\".\"IOTData\".\"runningCycleTime\"",
+      "OP100|EngineData": "ns=3;s=\"IOTOP100DB\".\"IOTData\".\"EngineData\"",
+      "OP100|Alm": "ns=3;s=\"IOTOP100DB\".\"IOTData\".\"alarm\""
+    }
+  },
+
+  "PLC1": {
+    "server_config": {
+      "end_point": "opc.tcp://10.141.44.11:4840"
+    },
+    "tags": {
+      "OP10|ok_parts": "ns=3;s=\"IOTOP10DB\".\"IOTData\".\"totalCountOkParts\"",
+      "OP10|nok_parts": "ns=3;s=\"IOTOP10DB\".\"IOTData\".\"totalCountNokParts\"",
+      "OP10|cycle_time": "ns=3;s=\"IOTOP10DB\".\"IOTData\".\"runningCycleTime\"",
+      "OP10|model_no": "ns=3;s=\"IOTOP10DB\".\"IOTData\".\"modelNumber\"",
+      "OP10|Alm": "ns=3;s=\"IOTOP10DB\".\"IOTData\".\"alarm\"",
+      "OP10|takt_time": "ns=3;s=\"IOTOP10DB\".\"IOTData\".\"runningCycleTime\"",
+      "OP10|EngineData": "ns=3;s=\"IOTOP10DB\".\"IOTData\".\"EngineData\"",
+      "OP20|ok_parts": "ns=3;s=\"IOTOP20DB\".\"IOTData\".\"totalCountOkParts\"",
+      "OP20|nok_parts": "ns=3;s=\"IOTOP20DB\".\"IOTData\".\"totalCountNokParts\"",
+      "OP20|cycle_time": "ns=3;s=\"IOTOP20DB\".\"IOTData\".\"runningCycleTime\"",
+      "OP20|model_no": "ns=3;s=\"IOTOP20DB\".\"IOTData\".\"modelNumber\"",
+      "OP20|takt_time": "ns=3;s=\"IOTOP20DB\".\"IOTData\".\"runningCycleTime\"",
+      "OP20|EngineData": "ns=3;s=\"IOTOP20DB\".\"IOTData\".\"EngineData\"",
+      "OP20|Alm": "ns=3;s=\"IOTOP20DB\".\"IOTData\".\"alarm\"",
+      "OP30|ok_parts": "ns=3;s=\"IOTOP30DB\".\"IOTData\".\"totalCountOkParts\"",
+      "OP30|nok_parts": "ns=3;s=\"IOTOP30DB\".\"IOTData\".\"totalCountNokParts\"",
+      "OP30|cycle_time": "ns=3;s=\"IOTOP30DB\".\"IOTData\".\"runningCycleTime\"",
+      "OP30|model_no": "ns=3;s=\"IOTOP30DB\".\"IOTData\".\"modelNumber\"",
+      "OP30|takt_time": "ns=3;s=\"IOTOP30DB\".\"IOTData\".\"runningCycleTime\"",
+      "OP30|EngineData": "ns=3;s=\"IOTOP30DB\".\"IOTData\".\"EngineData\"",
+      "OP30|Alm": "ns=3;s=\"IOTOP30DB\".\"IOTData\".\"alarm\"",
+      "OP40|ok_parts": "ns=3;s=\"IOTOP40DB\".\"IOTData\".\"totalCountOkParts\"",
+      "OP40|nok_parts": "ns=3;s=\"IOTOP40DB\".\"IOTData\".\"totalCountNokParts\"",
+      "OP40|cycle_time": "ns=3;s=\"IOTOP40DB\".\"IOTData\".\"runningCycleTime\"",
+      "OP40|model_no": "ns=3;s=\"IOTOP40DB\".\"IOTData\".\"modelNumber\"",
+      "OP40|takt_time": "ns=3;s=\"IOTOP40DB\".\"IOTData\".\"runningCycleTime\"",
+      "OP40|EngineData": "ns=3;s=\"IOTOP40DB\".\"IOTData\".\"EngineData\"",
+      "OP40|Alm": "ns=3;s=\"IOTOP40DB\".\"IOTData\".\"alarm\""
+    }
+  },
+
+  "PLC3": {
+    "server_config": {
+      "end_point": "opc.tcp://10.141.44.77:4840"
+    },
+    "tags": {
+      "OP110|ok_parts": "ns=3;s=\"IOTOP110DB\".\"IOTData\".\"totalCountOkParts\"",
+      "OP110|nok_parts": "ns=3;s=\"IOTOP110DB\".\"IOTData\".\"totalCountNokParts\"",
+      "OP110|cycle_time": "ns=3;s=\"IOTOP110DB\".\"IOTData\".\"runningCycleTime\"",
+      "OP110|model_no": "ns=3;s=\"IOTOP110DB\".\"IOTData\".\"modelNumber\"",
+      "OP110|Alm": "ns=3;s=\"IOTOP110DB\".\"IOTData\".\"alarm\"",
+      "OP110|takt_time": "ns=3;s=\"IOTOP110DB\".\"IOTData\".\"runningCycleTime\"",
+      "OP110|EngineData": "ns=3;s=\"IOTOP110DB\".\"IOTData\".\"EngineData\"",
+      "OP120|ok_parts": "ns=3;s=\"IOTOP120DB\".\"IOTData\".\"totalCountOkParts\"",
+      "OP120|nok_parts": "ns=3;s=\"IOTOP120DB\".\"IOTData\".\"totalCountNokParts\"",
+      "OP120|cycle_time": "ns=3;s=\"IOTOP120DB\".\"IOTData\".\"runningCycleTime\"",
+      "OP120|model_no": "ns=3;s=\"IOTOP120DB\".\"IOTData\".\"modelNumber\"",
+      "OP120|takt_time": "ns=3;s=\"IOTOP120DB\".\"IOTData\".\"runningCycleTime\"",
+      "OP120|EngineData": "ns=3;s=\"IOTOP120DB\".\"IOTData\".\"EngineData\"",
+      "OP120|Alm": "ns=3;s=\"IOTOP120DB\".\"IOTData\".\"alarm\"",
+      "OP130|ok_parts": "ns=3;s=\"IOTOP130DB\".\"IOTData\".\"totalCountOkParts\"",
+      "OP130|nok_parts": "ns=3;s=\"IOTOP130DB\".\"IOTData\".\"totalCountNokParts\"",
+      "OP130|cycle_time": "ns=3;s=\"IOTOP130DB\".\"IOTData\".\"runningCycleTime\"",
+      "OP130|model_no": "ns=3;s=\"IOTOP130DB\".\"IOTData\".\"modelNumber\"",
+      "OP130|takt_time": "ns=3;s=\"IOTOP130DB\".\"IOTData\".\"runningCycleTime\"",
+      "OP130|EngineData": "ns=3;s=\"IOTOP130DB\".\"IOTData\".\"EngineData\"",
+      "OP130|Alm": "ns=3;s=\"IOTOP130DB\".\"IOTData\".\"alarm\"",
+      "OP260|ok_parts": "ns=3;s=\"IOTOP260DB\".\"IOTData\".\"totalCountOkParts\"",
+      "OP260|nok_parts": "ns=3;s=\"IOTOP260DB\".\"IOTData\".\"totalCountNokParts\"",
+      "OP260|cycle_time": "ns=3;s=\"IOTOP260DB\".\"IOTData\".\"runningCycleTime\"",
+      "OP260|model_no": "ns=3;s=\"IOTOP260DB\".\"IOTData\".\"modelNumber\"",
+      "OP260|takt_time": "ns=3;s=\"IOTOP260DB\".\"IOTData\".\"runningCycleTime\"",
+      "OP260|EngineData": "ns=3;s=\"IOTOP260DB\".\"IOTData\".\"EngineData\"",
+      "OP260|Alm": "ns=3;s=\"IOTOP260DB\".\"IOTData\".\"alarm\""
+    }
+  },
+
+  "PLC4": {
+    "server_config": {
+      "end_point": "opc.tcp://10.141.44.102:4840"
+    },
+    "tags": {
+      "OP140|ok_parts": "ns=3;s=\"IOTOP140DB\".\"IOTData\".\"totalCountOkParts\"",
+      "OP140|nok_parts": "ns=3;s=\"IOTOP140DB\".\"IOTData\".\"totalCountNokParts\"",
+      "OP140|cycle_time": "ns=3;s=\"IOTOP140DB\".\"IOTData\".\"runningCycleTime\"",
+      "OP140|model_no": "ns=3;s=\"IOTOP140DB\".\"IOTData\".\"modelNumber\"",
+      "OP140|Alm": "ns=3;s=\"IOTOP140DB\".\"IOTData\".\"alarm\"",
+      "OP140|takt_time": "ns=3;s=\"IOTOP140DB\".\"IOTData\".\"runningCycleTime\"",
+      "OP140|EngineData": "ns=3;s=\"IOTOP140DB\".\"IOTData\".\"EngineData\"",
+      "OP150|ok_parts": "ns=3;s=\"IOTOP150DB\".\"IOTData\".\"totalCountOkParts\"",
+      "OP150|nok_parts": "ns=3;s=\"IOTOP150DB\".\"IOTData\".\"totalCountNokParts\"",
+      "OP150|cycle_time": "ns=3;s=\"IOTOP150DB\".\"IOTData\".\"runningCycleTime\"",
+      "OP150|model_no": "ns=3;s=\"IOTOP150DB\".\"IOTData\".\"modelNumber\"",
+      "OP150|takt_time": "ns=3;s=\"IOTOP150DB\".\"IOTData\".\"runningCycleTime\"",
+      "OP150|EngineData": "ns=3;s=\"IOTOP150DB\".\"IOTData\".\"EngineData\"",
+      "OP150|Alm": "ns=3;s=\"IOTOP150DB\".\"IOTData\".\"alarm\"",
+      "OP160|ok_parts": "ns=3;s=\"IOTOP160DB\".\"IOTData\".\"totalCountOkParts\"",
+      "OP160|nok_parts": "ns=3;s=\"IOTOP160DB\".\"IOTData\".\"totalCountNokParts\"",
+      "OP160|cycle_time": "ns=3;s=\"IOTOP160DB\".\"IOTData\".\"runningCycleTime\"",
+      "OP160|model_no": "ns=3;s=\"IOTOP160DB\".\"IOTData\".\"modelNumber\"",
+      "OP160|takt_time": "ns=3;s=\"IOTOP160DB\".\"IOTData\".\"runningCycleTime\"",
+      "OP160|EngineData": "ns=3;s=\"IOTOP160DB\".\"IOTData\".\"EngineData\"",
+      "OP160|Alm": "ns=3;s=\"IOTOP160DB\".\"IOTData\".\"alarm\"",
+      "OP170|ok_parts": "ns=3;s=\"IOTOP170DB\".\"IOTData\".\"totalCountOkParts\"",
+      "OP170|nok_parts": "ns=3;s=\"IOTOP170DB\".\"IOTData\".\"totalCountNokParts\"",
+      "OP170|cycle_time": "ns=3;s=\"IOTOP170DB\".\"IOTData\".\"runningCycleTime\"",
+      "OP170|model_no": "ns=3;s=\"IOTOP170DB\".\"IOTData\".\"modelNumber\"",
+      "OP170|takt_time": "ns=3;s=\"IOTOP170DB\".\"IOTData\".\"runningCycleTime\"",
+      "OP170|EngineData": "ns=3;s=\"IOTOP170DB\".\"IOTData\".\"EngineData\"",
+      "OP170|Alm": "ns=3;s=\"IOTOP170DB\".\"IOTData\".\"alarm\""
+    }
+  },
+
+  "PLC5": {
+    "server_config": {
+      "end_point": "opc.tcp://10.141.44.130:4840"
+    },
+    "tags": {
+      "OP180|ok_parts": "ns=3;s=\"IOTOP180DB\".\"IOTData\".\"totalCountOkParts\"",
+      "OP180|nok_parts": "ns=3;s=\"IOTOP180DB\".\"IOTData\".\"totalCountNokParts\"",
+      "OP180|cycle_time": "ns=3;s=\"IOTOP180DB\".\"IOTData\".\"runningCycleTime\"",
+      "OP180|model_no": "ns=3;s=\"IOTOP180DB\".\"IOTData\".\"modelNumber\"",
+      "OP180|Alm": "ns=3;s=\"IOTOP180DB\".\"IOTData\".\"alarm\"",
+      "OP180|takt_time": "ns=3;s=\"IOTOP180DB\".\"IOTData\".\"runningCycleTime\"",
+      "OP180|EngineData": "ns=3;s=\"IOTOP180DB\".\"IOTData\".\"EngineData\"",
+      "OP190|ok_parts": "ns=3;s=\"IOTOP190DB\".\"IOTData\".\"totalCountOkParts\"",
+      "OP190|nok_parts": "ns=3;s=\"IOTOP190DB\".\"IOTData\".\"totalCountNokParts\"",
+      "OP190|cycle_time": "ns=3;s=\"IOTOP190DB\".\"IOTData\".\"runningCycleTime\"",
+      "OP190|model_no": "ns=3;s=\"IOTOP190DB\".\"IOTData\".\"modelNumber\"",
+      "OP190|takt_time": "ns=3;s=\"IOTOP190DB\".\"IOTData\".\"runningCycleTime\"",
+      "OP190|EngineData": "ns=3;s=\"IOTOP190DB\".\"IOTData\".\"EngineData\"",
+      "OP200|ok_parts": "ns=3;s=\"IOTOP200DB\".\"IOTData\".\"totalCountOkParts\"",
+      "OP200|nok_parts": "ns=3;s=\"IOTOP200DB\".\"IOTData\".\"totalCountNokParts\"",
+      "OP200|cycle_time": "ns=3;s=\"IOTOP200DB\".\"IOTData\".\"runningCycleTime\"",
+      "OP200|model_no": "ns=3;s=\"IOTOP200DB\".\"IOTData\".\"modelNumber\"",
+      "OP200|takt_time": "ns=3;s=\"IOTOP200DB\".\"IOTData\".\"runningCycleTime\"",
+      "OP200|EngineData": "ns=3;s=\"IOTOP200DB\".\"IOTData\".\"EngineData\"",
+      "OP220|ok_parts": "ns=3;s=\"IOTOP220DB\".\"IOTData\".\"totalCountOkParts\"",
+      "OP220|nok_parts": "ns=3;s=\"IOTOP220DB\".\"IOTData\".\"totalCountNokParts\"",
+      "OP220|cycle_time": "ns=3;s=\"IOTOP220DB\".\"IOTData\".\"runningCycleTime\"",
+      "OP220|model_no": "ns=3;s=\"IOTOP220DB\".\"IOTData\".\"modelNumber\"",
+      "OP220|takt_time": "ns=3;s=\"IOTOP220DB\".\"IOTData\".\"runningCycleTime\"",
+      "OP220|EngineData": "ns=3;s=\"IOTOP220DB\".\"IOTData\".\"EngineData\"",
+      "OP220|Alm": "ns=3;s=\"IOTOP220DB\".\"IOTData\".\"alarm\"",
+      "OP270|ok_parts": "ns=3;s=\"IOTOP270DB\".\"IOTData\".\"totalCountOkParts\"",
+      "OP270|nok_parts": "ns=3;s=\"IOTOP270DB\".\"IOTData\".\"totalCountNokParts\"",
+      "OP270|cycle_time": "ns=3;s=\"IOTOP270DB\".\"IOTData\".\"runningCycleTime\"",
+      "OP270|model_no": "ns=3;s=\"IOTOP270DB\".\"IOTData\".\"modelNumber\"",
+      "OP270|takt_time": "ns=3;s=\"IOTOP270DB\".\"IOTData\".\"runningCycleTime\"",
+      "OP270|EngineData": "ns=3;s=\"IOTOP270DB\".\"IOTData\".\"EngineData\""
+    }
+  },
+
+  "PLC6": {
+    "server_config": {
+      "end_point": "opc.tcp://10.141.44.168:4840"
+    },
+    "tags": {
+      "OP280|ok_parts": "ns=3;s=\"IOTOP280DB\".\"IOTData\".\"totalCountOkParts\"",
+      "OP280|nok_parts": "ns=3;s=\"IOTOP280DB\".\"IOTData\".\"totalCountNokParts\"",
+      "OP280|cycle_time": "ns=3;s=\"IOTOP280DB\".\"IOTData\".\"runningCycleTime\"",
+      "OP280|model_no": "ns=3;s=\"IOTOP280DB\".\"IOTData\".\"modelNumber\"",
+      "OP280|Alm": "ns=3;s=\"IOTOP280DB\".\"IOTData\".\"alarm\"",
+      "OP280|takt_time": "ns=3;s=\"IOTOP280DB\".\"IOTData\".\"runningCycleTime\"",
+      "OP280|EngineData": "ns=3;s=\"IOTOP280DB\".\"IOTData\".\"EngineData\"",
+      "OP290|ok_parts": "ns=3;s=\"IOTOP290DB\".\"IOTData\".\"totalCountOkParts\"",
+      "OP290|nok_parts": "ns=3;s=\"IOTOP290DB\".\"IOTData\".\"totalCountNokParts\"",
+      "OP290|cycle_time": "ns=3;s=\"IOTOP290DB\".\"IOTData\".\"runningCycleTime\"",
+      "OP290|model_no": "ns=3;s=\"IOTOP290DB\".\"IOTData\".\"modelNumber\"",
+      "OP290|takt_time": "ns=3;s=\"IOTOP290DB\".\"IOTData\".\"runningCycleTime\"",
+      "OP290|EngineData": "ns=3;s=\"IOTOP290DB\".\"IOTData\".\"EngineData\"",
+      "OP300|ok_parts": "ns=3;s=\"IOTOP300DB\".\"IOTData\".\"totalCountOkParts\"",
+      "OP300|nok_parts": "ns=3;s=\"IOTOP300DB\".\"IOTData\".\"totalCountNokParts\"",
+      "OP300|cycle_time": "ns=3;s=\"IOTOP300DB\".\"IOTData\".\"runningCycleTime\"",
+      "OP300|model_no": "ns=3;s=\"IOTOP300DB\".\"IOTData\".\"modelNumber\"",
+      "OP300|takt_time": "ns=3;s=\"IOTOP300DB\".\"IOTData\".\"runningCycleTime\"",
+      "OP300|EngineData": "ns=3;s=\"IOTOP300DB\".\"IOTData\".\"EngineData\"",
+      "OP310|ok_parts": "ns=3;s=\"IOTOP310DB\".\"IOTData\".\"totalCountOkParts\"",
+      "OP310|nok_parts": "ns=3;s=\"IOTOP310DB\".\"IOTData\".\"totalCountNokParts\"",
+      "OP310|cycle_time": "ns=3;s=\"IOTOP310DB\".\"IOTData\".\"runningCycleTime\"",
+      "OP310|model_no": "ns=3;s=\"IOTOP310DB\".\"IOTData\".\"modelNumber\"",
+      "OP310|takt_time": "ns=3;s=\"IOTOP310DB\".\"IOTData\".\"runningCycleTime\"",
+      "OP310|EngineData": "ns=3;s=\"IOTOP310DB\".\"IOTData\".\"EngineData\""
+    }
+  }
+}
+
+
+

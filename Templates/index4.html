@@ -1,0 +1,1025 @@
+<html>
+<head>
+    {% load static %}
+    <!-- Basic -->
+    <meta charset="UTF-8">
+    <title>:: THIS IS THE ONE ::</title>
+    <link rel="icon" href="{% static 'images/teallogo.png' %}" type="image/x-icon">
+    <!-- Mobile Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <!-- Vendor CSS -->
+    <link rel="stylesheet" href="{% static 'vendor/bootstrap/css/bootstrap.css' %}" />
+    <link rel="stylesheet" href="{% static 'vendor/font-awesome/css/font-awesome.css' %}" />
+    <link rel="stylesheet" href="{% static 'vendor/magnific-popup/magnific-popup.css' %}" />
+    <!-- <link rel="stylesheet" href= "{% static 'vendor/bootstrap-datepicker/css/datepicker3.css" /> -->
+    <!-- Specific Page Vendor CSS -->
+    <link rel="stylesheet" href="{% static 'vendor/jquery-ui/css/ui-lightness/jquery-ui-1.10.4.custom.css' %}" />
+    <link rel="stylesheet" href="{% static 'vendor/bootstrap-multiselect/bootstrap-multiselect.css' %}" />
+    <link rel="stylesheet" href="{% static 'vendor/morris/morris.css' %}" />
+
+    <!-- Theme CSS -->
+    <link rel="stylesheet" href="{% static 'stylesheets/theme.css' %}" />
+
+    <!-- Skin CSS -->
+    <link rel="stylesheet" href="{% static 'stylesheets/skins/default.css' %}" />
+
+    <!-- Theme Custom CSS -->
+    <link rel="stylesheet" href="{% static 'stylesheets/theme-custom.css' %}">
+
+    <!-- Head Libs -->
+    <!-- href= "{% static 'images/teallogo.png' %}"  -->
+    <script src="{% static 'vendor/modernizr/modernizr.js' %}"></script>
+
+    <!-- Bargraph -->
+    <script src="{% static 'Charts/Bargraph/Bargraph.js' %}"></script>
+    <script src="{% static 'Charts/BarLinegraph/BargraphLinegraphTarget.js' %}"></script>
+    <script src="{% static 'Charts/BarLinegraph/BargraphGroupedBarsLine.js' %}"></script>
+    <script src="{% static 'Charts/CircularBargraph/Cicularbargraph.js' %}"></script>
+
+    <script type="text/javascript">
+        function isNumberKey(evt) {
+            var charCode = (evt.which) ? evt.which : event.keyCode
+            if (charCode != 46 && charCode > 31
+                && (charCode < 48 || charCode > 57))
+                return false;
+            return true;
+        }
+        function alphaOnly(evt) {
+            var key = (evt.which) ? evt.which : event.keyCode
+            if ((key >= 65 && key <= 90) || (key > 96 && key < 123) || key == 8)
+                return true;
+            return false;
+        };
+    </script>
+
+    <style>
+        .panel-body {
+            background: none !important;
+        }
+
+        select {
+            border: 1px solid #E5E7E9;
+            border-radius: 6px;
+            height: 20px !important;
+            padding: 0px !important;
+            outline: none;
+        }
+    </style>
+
+    <style>
+        body .btn-danger1 {
+            color: #ffffff;
+            text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+            background-color: #777777;
+            border-color: #cccccc;
+            height: 35px !important;
+            width: 80px;
+        }
+
+        .btn-danger1:hover {
+            color: #fff;
+        }
+
+        .container {
+            width: 15%;
+            float: left;
+            text-align: center;
+        }
+
+        .text {
+            color: black;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        /* Style for table data */
+        .table tbody td {
+            color: black; /* Apply black text color to table data */
+        }
+    </style>
+
+    <!--Legend-->
+
+    <script>
+        // Colors for the legend and layers
+        const greenColor = "#2AB835";  // Green
+        const yellowColor = "#F3E03A"; // Yellow
+        const redColor = "#EC3D34";    // Red
+        const bluecolor = "#093362";    // blue
+
+        // Set the colors for the layers
+        document.getElementById('greenLayer').style.backgroundColor = greenColor;
+        document.getElementById('yellowLayer').style.backgroundColor = yellowColor;
+        document.getElementById('redLayer').style.backgroundColor = redColor;
+        document.getElementById('bluecolor').style.backgroundColor = bluecolor;
+
+
+    </script>
+
+    <!-- Live CT -->
+
+    <style>
+        .chart-container {
+            position: relative;
+            width: 80%;
+            margin: auto;
+            padding-top: 0px;
+        }
+
+        .chart-values, .chart-percentages {
+            display: flex;
+            justify-content: space-between;
+            padding: 0 10px;
+            font-size: 14px;
+            color: blue;
+        }
+
+        .chart {
+            position: relative;
+            width: 100%;
+            height: 30px;
+            background-color: lightgray;
+            border: 1px solid #ccc;
+            margin-bottom: 5px;
+            overflow: hidden;
+        }
+
+        .indicator {
+            position: absolute;
+            height: 100%;
+            width: 2px;
+            background-color: black;
+            top: 0;
+            z-index: 2;
+        }
+
+        .background-layer {
+            position: absolute;
+            height: 100%;
+            top: 0;
+        }
+
+        .green-layer {
+            background-color: green;
+            z-index: 1;
+        }
+
+        .yellow-layer {
+            background-color: yellow;
+            z-index: 1;
+        }
+
+        .red-layer {
+            background-color: red;
+            z-index: 1;
+        }
+
+        .live-percentage {
+            position: absolute;
+            top: 35px;
+            left: 0;
+            transform: translateX(-50%);
+            font-size: 14px;
+            color: black;
+        }
+    </style>
+
+    <!-- Hourly graph -->
+
+    <style type="text/css">
+        .axis .domain {
+            display: none;
+        }
+
+        body {
+            font-family: 'Droid Sans', sans-serif;
+        }
+
+        .axis {
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        text {
+            fill: #727075;
+            stroke: none;
+        }
+
+        .axis path,
+        .axis line {
+            fill: none;
+            stroke: none;
+            stroke-width: 2px;
+            shape-rendering: crispEdges;
+        }
+
+        .grid path {
+            stroke: none;
+        }
+
+        .grid line {
+            stroke: #E0E0E0;
+            shape-rendering: crispEdges;
+        }
+
+        .data-line {
+            fill: none;
+            stroke: #3C92BA;
+            stroke-width: 4px;
+        }
+
+        .data-circle {
+            fill: #3C92BA;
+        }
+
+        .axis-title {
+            text-anchor: end;
+            fill: #5D6971;
+            font-weight: normal;
+        }
+
+        .axis-tspan {
+            font-size: 12px;
+        }
+
+        .clinical-cut-off-line {
+            fill: none;
+            stroke: #333333;
+            stroke-dasharray: 8,8;
+            stroke-width: 4px;
+        }
+
+        .clinical-cut-off-text {
+            text-transform: uppercase;
+            text-anchor: start;
+            font-size: 12px;
+            font-weight: bold;
+            fill: #333333;
+            stroke: none
+        }
+
+        @-webkit-keyframes pulse {
+            0% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.3;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        .bars-container-middle {
+            fill: none;
+            stroke: none;
+        }
+
+        .clinically-significant-pulsing-rect {
+            fill: pink;
+            /* Giving Animation Function */
+            /* -webkit-animation: pulse 1.5s ease infinite; */
+        }
+    </style>
+
+    <!-- Live Alam -->
+
+    <style>
+        .table-responsive {
+            height: 130px; /* Adjusted height for 5 rows */
+            overflow-y: auto;
+        }
+
+        .table thead th {
+            position: -webkit-sticky; /* For Safari */
+            position: sticky;
+            top: 0;
+            background-color: #093362; /* Reapply background color for the sticky header */
+            color: #fff;
+        }
+
+        /* Optional: Set a fixed height for the rows to ensure consistent row height */
+        .table tbody tr {
+            height: 26px; /* Adjust as necessary to fit 5 rows */
+        }
+    </style>
+
+</head>
+<body>
+    <div class="row" id="Historic" style="padding: 20px;">
+        <div class="col-md-12">
+            <div class="col-md-2" style="border:1px solid black;height: 120px;border-bottom: none;">
+                <div class="panel-body">
+                    <img src="{% static 'images/TVS-motors-logo.png' %}" style="width:200px;" />
+                </div>
+            </div>
+            <div class="col-md-8" style="border: 1px solid black; height: 120px; border-bottom: none; border-left: none; font-size: 18px;">
+                <div class="panel-body">
+                    <div class="form-group" id="div_dates">
+                        <div style="width:100%">
+                            <div style="width:40%;float:left;color:black">
+                                <p>
+                                    <!--<strong>STATION NO : </strong>
+                                    <select id="station-no">
+                                        <option>{{station_name}}</option>
+                                    </select>
+                                    <br />-->
+                                    <strong>STATION NO : <span id="station-no">{{station_no}}</span></strong>
+                                    <br />
+                                    <strong>STATION NAME : <span id="station-name">{{station_name}}</span></strong>
+                                    <br />
+                                    <strong>CONNECTED IP : <span id="connected ip-no">{{client_ip}}</span></strong>
+                                </p>
+                            </div>
+                            <div style="width: 20%; float: left; margin-left: 120px;">
+                                <img src="{% static 'images/Ref02.png' %}" style="width:100px;" />
+                            </div>
+                            <div style="width: 20%; float: right; color: black">
+                                <p>
+                                    <strong>Model : <span id="model">{{variant}}</span></strong>
+                                    <br />
+                                    <strong>Serial No : <span id="serial-no">{{serial_number}}</span></strong>
+                                    <br />
+                                    <strong>Shift : <span id="shift">{{shift}}</span></strong>
+                                    <br />
+                                    <strong>Timestamp : <span id="timestamp">10/07/2024 12:37</span></strong>
+                                </p>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2" style="border:1px solid black;height: 120px;border-bottom: none;border-left: none;">
+                <div class="panel-body">
+                    <div class="form-group" id="div_dates">
+                        <img src="{% static 'images/titanteallogo.png' %}" style="width:200px;" />
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="col-md-12" style="border:1px solid black;height: 100px;border-bottom: none;">
+                <section class="panel">
+                    <div class="panel-body">
+                        <div style="width:100%">
+                            <!-- OK Parts and NOK Parts Buttons -->
+                            <div style="width: 10%; float: left; padding-top: 10px;">
+                                <button class="btn btn-success">
+                                    OK Parts <br />
+                                    <span id="ok_parts">{{ok_parts}}</span>
+                                </button>
+                            </div>
+                            <div style="width: 10%; float: left; padding-top: 10px;">
+                                <button class="btn btn-danger">
+                                    NOK Parts <br />
+                                    <span id="nok_parts">{{nok_parts}}</span>
+                                </button>
+                            </div>
+                            <!--<div class="container">
+                                <div class="text">TAKT TIME(s)</div>
+                                <button class="btn btn-danger1">
+                                    <span id="talk_time">{{tack_time}}</span>
+                                </button>
+                            </div>-->
+                            <!-- TAKT TIME and Live CT Boxes -->
+                            <div class="container" style="display: flex; gap: 10px; align-items: center;font-size: 15px;">
+                                <div class="takt-time">
+                                    <div class="text">TAKT TIME(s)</div>
+                                    <div class="box" style="border: 1px solid #ccc; padding: 10px; width: 100px; text-align: center; background-color: gray;">
+                                        <div id="takt_time" style="font-size: 18px; font-weight: normal; color: white">{{takt_time}}</div>
+                                    </div>
+                                </div>
+                                <div class="cycle-time">
+                                    <div class="text">Live CT</div>
+                                    <div class="box" style="border: 1px solid #ccc; padding: 10px; width: 100px; text-align: center; background-color: gray;">
+                                        <div id="cycle_time" style="font-size: 18px; font-weight: normal; color: white">{{cycle_time}}</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Live CT -->
+                            <div style="width:50%;float: right;">
+                                <div class="chart-container" style="margin-left: 120px;margin-right: 10px;">
+                                    <div class="chart-values">
+                                        <span id="value-0">0</span>
+                                        <span id="value-50">50</span>
+                                        <span id="value-100">100</span>
+                                        <span id="value-150">150</span>
+                                        <span id="value-200">200</span>
+                                        <span id="value-250">250</span>
+                                    </div>
+                                    <div class="chart" id="chart">
+                                        <div id="greenLayer" class="background-layer green-layer"></div>
+                                        <div id="yellowLayer" class="background-layer yellow-layer"></div>
+                                        <div id="redLayer" class="background-layer red-layer"></div>
+                                        <div id="indicator" class="indicator"></div>
+                                        <span id="livePercentage" class="live-percentage">0%</span>
+                                    </div>
+                                    <div class="chart-percentages">
+                                        <span id="percent-0">0%</span>
+                                        <span id="percent-100">100%</span>
+                                        <span id="percent-120" style="margin-right: calc(40% - 57px);">120%</span>
+                                        <span id="percent-150">&gt;150%</span>
+                                    </div>
+                                </div>
+
+                                <!-- Legend for Green, Yellow, and Red -->
+                                <div style="width:15%;float: right;">
+                                    <div class="legend">
+                                        <div style="margin-bottom: 10px;">
+                                            <span id="greenLegend" style="display:inline-block;width: 15px;height: 15px;background-color: green;"></span>
+                                            <span>Green: 0% - 100%</span>
+                                        </div>
+                                        <div style="margin-bottom: 10px;">
+                                            <span id="yellowLegend" style="display:inline-block;width: 15px;height: 15px;background-color: yellow;"></span>
+                                            <span>Yellow: 100% - 120%</span>
+                                        </div>
+                                        <div>
+                                            <span id="redLegend" style="display:inline-block;width: 15px;height: 15px;background-color: red;"></span>
+                                            <span>Red: 120% - 150%</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                </section>
+            </div>
+        </div>
+        <!-- Hourly graph -->
+        <div class="col-md-12">
+            <div class="col-md-12" style="border:1px solid black;height: 250px;border-bottom: none;">
+                <section class="panel">
+                    <div class="panel-body">
+                        <div id="Shift_1" style="width:30%;float: left;">
+                            <p style="text-align: center; font-weight: bold; font-size: 18px; color: black; margin-right: 40px; ">Shift 1</p>
+                            <svg width="400" height="300"></svg>
+                        </div>
+                        <div id="Shift_2" style="width:30%;float: left;">
+                            <p style="text-align: center; font-weight: bold; font-size: 18px; color: black; margin-right: 40px; ">Shift 2</p>
+                            <svg width="400" height="300"></svg>
+                        </div>
+                        <div id="Shift_3" style="width:25%;float: right;">
+                            <p style="text-align: center; font-weight: bold; font-size: 18px; color: black; margin-right: 40px; ">Shift 3</p>
+                            <svg width="400" height="300"></svg>
+                        </div>
+                        <!-- Legend for Green, Yellow, and Red -->
+                        <div style="width:15%;float: right;">
+                            <div class="legend" style="margin-top: 70px;margin-bottom: 10px;margin-left: 30px;">
+                                <div style="margin-bottom: 10px;">
+                                    <span id="greenLegend" style="display: inline-block; width: 15px; height: 15px; background-color: #2AB835;"></span>
+                                    <span>Green: 0% - 100%</span>
+                                </div>
+                                <div style="margin-bottom: 10px;">
+                                    <span id="bluelegend" style="display: inline-block; width: 15px; height: 15px; background-color: #093362; "></span>
+                                    <span>Blue: 100% - 120%</span>
+                                </div>
+                                <div>
+                                    <span id="redLegend" style="display: inline-block; width: 15px; height: 15px; background-color: #EC3D34;"></span>
+                                    <span>Red: 120% - 150%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+        <!-- Liva alarm -->
+
+        <div class="col-md-12">
+            <div class="col-md-12" style="border:1px solid black;height: 150px;">
+                <section class="panel" style="padding-left: 0px !important;">
+                    <div class="panel-body">
+                        <div class="table-responsive">
+                            <table class="table table-bordered table-striped table-condensed mb-none" id='py_alms'>
+                                <thead>
+                                    <tr>
+                                        <th>Active Alarms</th>
+                                        <th>Start Time</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td id="alarm-1">Scanned node failed error</td>
+                                        <td id="start-time-1">28-07-2024 10:50</td>
+                                    </tr>
+                                    <tr>
+                                        <td id="alarm-2">Emergency pressed in station</td>
+                                        <td id="start-time-2">29-07-2024 1:20</td>
+                                    </tr>
+                                    <tr>
+                                        <td id="alarm-3">Emergency pressed</td>
+                                        <td id="start-time-3">30-07-2024 1:30</td>
+                                    </tr>
+                                    <tr>
+                                        <td id="alarm-4">Power failure</td>
+                                        <td id="start-time-4">31-07-2024 2:00</td>
+                                    </tr>
+                                    <tr>
+                                        <td id="alarm-5">System reboot required</td>
+                                        <td id="start-time-5">01-08-2024 4:00</td>
+                                    </tr>
+                                    <tr>
+                                        <td id="alarm-6">Overheating detected</td>
+                                        <td id="start-time-6">02-08-2024 5:15</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+
+    <script src="{% static 'javascripts/swal.js' %}"></script>
+    <script src="{% static 'javascripts/swal_alert.js' %}"></script>
+    <script src="{% static 'datepicker_normal/datepicker_normal_jquery.min.js' %}"></script>
+    <script src="{% static 'datepicker_normal/jquery-ui-1.8.19.custom.min.js' %}"></script>
+    <!--    <script src= "{% static 'Scripts/bootstrap-datepicker.js' %}"></script>-->
+    <!--    <script src="https://d3js.org/d3.v4.min.js"></script>-->
+    <script src="{% static 'javascripts/d3.min.js' %}"></script>
+
+    <!-- Hourly -->
+    <script type="text/javascript">
+
+        function addLegend(svg, width) {
+            var legend = svg.append("g")
+                .attr("class", "legend")
+                .attr("transform", "translate(" + (width - 50) + ",30)");
+
+            var legendData = [
+                { color: "green", text: "0% - 100%" },
+                { color: "yellow", text: "100% - 120%" },
+                { color: "red", text: "120% - 150%" }
+            ];
+
+            legend.selectAll("rect")
+                .data(legendData)
+                .enter()
+                .append("rect")
+                .attr("x", 0)
+                .attr("y", function (d, i) { return i * 20; })
+                .attr("width", 18)
+                .attr("height", 18)
+                .style("fill", function (d) { return d.color; });
+
+            legend.selectAll("text")
+                .data(legendData)
+                .enter()
+                .append("text")
+                .attr("x", 24)
+                .attr("y", function (d, i) { return i * 20 + 9; })
+                .attr("dy", ".35em")
+                .text(function (d) { return d.text; });
+        }
+
+        function Get_S1(svgId, dataDict) {
+            var svg = d3.select(svgId),
+                margin = { top: 20, right: 20, bottom: 30, left: 40 },
+                width = +svg.attr("width") - margin.left - margin.right,
+                height = +svg.attr("height") - margin.top - margin.bottom,
+                g = svg.append("g").attr("transform", "translate(" + margin.left + ",-20)");
+
+            var x0 = d3.scaleBand().rangeRound([0, width]).paddingInner(0.2);
+            var x1 = d3.scaleBand().padding(0.1);
+            var y = d3.scaleLinear().rangeRound([(height / 1.75), 0]);
+            var z = d3.scaleOrdinal().range(["#093362", "#EC3D34"]);  // Two colors for before/after
+
+            var data = Object.keys(dataDict).map(function (state) {
+                return {
+                    "State": state,
+                    "values": [
+                        { "value": dataDict[state][0], "type": "Before Treatment" },
+                        { "value": dataDict[state][1], "type": "After Treatment" }
+                    ]
+                };
+            });
+
+            var categoriesNames = data.map(function (d) { return d.State; });
+            var rateNames = data[0].values.map(function (d) { return d.type; });
+
+            x0.domain(categoriesNames);
+            x1.domain(rateNames).rangeRound([0, x0.bandwidth()]);
+            y.domain([0, d3.max(data, function (categorie) {
+                return d3.max(categorie.values, function (d) { return d.value; });
+            }) * 1.2]);
+
+            g.append("g")
+                .attr("class", "grid")
+                .attr("transform", "translate(0," + (height / 7) + ")")
+                .call(d3.axisLeft(y)
+                    .tickSize(-width)
+                    .tickFormat("")
+                    .ticks(6)
+                );
+
+            var barG = g.append("g")
+                .selectAll("g")
+                .data(data)
+                .enter()
+                .append("g")
+                .attr("transform", function (d) { return "translate(" + x0(d.State) + ",0)"; });
+
+            barG.selectAll(".bars")
+                .data(function (d) { return d.values; })
+                .enter()
+                .append("rect")
+                .attr("class", "bars")
+                .attr("transform", "translate(0," + (height / 7) + ")")
+                .attr("x", function (d) { return x1(d.type); })
+                .attr("width", x1.bandwidth())
+                .attr("fill", function (d) { return z(d.type); })
+                .attr("y", function (d) { return y(d.value); })
+                .attr('height', function (d) {
+                    if (d.value > 0) { return ((height / 1.75)) - y(d.value); }
+                    else { return 0 }
+                });
+
+            g.append("g")
+                .attr("class", "x-axis axis")
+                .attr("transform", "translate(20," + (height / 1.4) + ")")
+                .call(d3.axisBottom(x0))
+                .selectAll("text")
+                .style("text-anchor", "end")
+                .attr("dx", "-.8em")
+                .attr("dy", ".15em")
+                .attr("font-weight", "normal")
+                .attr("font-size", "12px")  // Smaller font size to prevent thickening
+                .text(function (d) {
+                    if (d.length > 14) { return d.substring(0, 14) + '...'; }
+                    else { return d; }
+                });
+
+            // Adding the x-axis label
+            g.append("text")
+                .attr("class", "x-axis-label")
+                .attr("transform", "translate(" + (width / 2) + "," + (height / 1.15) + ")") // Adjust based on your height/margin
+                .style("text-anchor", "middle")
+                .attr("font-size", "16px")
+                .attr("font-weight", "bold")
+                .style("fill", "black")  // Set text color to black
+                .text("Hour");
+
+            g.append("g")
+                .attr("class", "y-axis axis")
+                .attr("transform", "translate(0," + (height / 7) + ")")
+                .call(d3.axisLeft(y).ticks(7));
+
+            g.append("text")
+                .attr("class", "y-axis-label")
+                .attr("x", -height / 2.3)
+                .attr("y", (margin.left / 4) - 40)
+                .attr("transform", "rotate(-90)")
+                .attr("text-anchor", "middle")
+                .attr("font-weight", "bold")
+                .attr("font-size", "15px")
+                .style("fill", "black")  // Set text color to black
+                .text("Production Count");
+        }
+
+        function Get_S2(svgId, dataDict) {
+            var svg = d3.select(svgId),
+                margin = { top: 20, right: 20, bottom: 30, left: 40 },
+                width = +svg.attr("width") - margin.left - margin.right,
+                height = +svg.attr("height") - margin.top - margin.bottom,
+                g = svg.append("g").attr("transform", "translate(" + margin.left + ",-20)");
+
+            var x0 = d3.scaleBand().rangeRound([0, width]).paddingInner(0.2);
+            var x1 = d3.scaleBand().padding(0.1);
+            var y = d3.scaleLinear().rangeRound([(height / 1.75), 0]);
+            var z = d3.scaleOrdinal().range(["#093362", "#EC3D34"]);  // Two colors for before/after
+
+            var data = Object.keys(dataDict).map(function (state) {
+                return {
+                    "State": state,
+                    "values": [
+                        { "value": dataDict[state][0], "type": "Before Treatment" },
+                        { "value": dataDict[state][1], "type": "After Treatment" }
+                    ]
+                };
+            });
+
+            var categoriesNames = data.map(function (d) { return d.State; });
+            var rateNames = data[0].values.map(function (d) { return d.type; });
+
+            x0.domain(categoriesNames);
+            x1.domain(rateNames).rangeRound([0, x0.bandwidth()]);
+            y.domain([0, d3.max(data, function (categorie) {
+                return d3.max(categorie.values, function (d) { return d.value; });
+            }) * 1.2]);
+
+            g.append("g")
+                .attr("class", "grid")
+                .attr("transform", "translate(0," + (height / 7) + ")")
+                .call(d3.axisLeft(y)
+                    .tickSize(-width)
+                    .tickFormat("")
+                    .ticks(6)
+                );
+
+            var barG = g.append("g")
+                .selectAll("g")
+                .data(data)
+                .enter()
+                .append("g")
+                .attr("transform", function (d) { return "translate(" + x0(d.State) + ",0)"; });
+
+            barG.selectAll(".bars")
+                .data(function (d) { return d.values; })
+                .enter()
+                .append("rect")
+                .attr("class", "bars")
+                .attr("transform", "translate(0," + (height / 7) + ")")
+                .attr("x", function (d) { return x1(d.type); })
+                .attr("width", x1.bandwidth())
+                .attr("fill", function (d) { return z(d.type); })
+                .attr("y", function (d) { return y(d.value); })
+                .attr('height', function (d) {
+                    if (d.value > 0) { return ((height / 1.75)) - y(d.value); }
+                    else { return 0 }
+                });
+
+            g.append("g")
+                .attr("class", "x-axis axis")
+                .attr("transform", "translate(20," + (height / 1.4) + ")")
+                .call(d3.axisBottom(x0))
+                .selectAll("text")
+                .style("text-anchor", "end")
+                .attr("dx", "-.8em")
+                .attr("dy", ".15em")
+                .attr("font-weight", "normal")
+                .attr("font-size", "12px")  // Smaller font size to prevent thickening
+                .text(function (d) {
+                    if (d.length > 14) { return d.substring(0, 14) + '...'; }
+                    else { return d; }
+                });
+
+            // Adding the x-axis label
+            g.append("text")
+                .attr("class", "x-axis-label")
+                .attr("transform", "translate(" + (width / 2) + "," + (height / 1.15) + ")") // Adjust based on your height/margin
+                .style("text-anchor", "middle")
+                .attr("font-size", "16px")
+                .attr("font-weight", "bold")
+                .style("fill", "black")  // Set text color to black
+                .text("Hour");
+
+            g.append("g")
+                .attr("class", "y-axis axis")
+                .attr("transform", "translate(0," + (height / 7) + ")")
+                .call(d3.axisLeft(y).ticks(7));
+
+            g.append("text")
+                .attr("class", "y-axis-label")
+                .attr("x", -height / 2.3)
+                .attr("y", (margin.left / 4) - 40)
+                .attr("transform", "rotate(-90)")
+                .attr("text-anchor", "middle")
+                .attr("font-weight", "bold")
+                .attr("font-size", "15px")
+                .style("fill", "black")  // Set text color to black
+                .text("Production Count");
+        }
+
+        function Get_S3(svgId, dataDict) {
+            var svg = d3.select(svgId),
+                margin = { top: 20, right: 20, bottom: 30, left: 40 },
+                width = +svg.attr("width") - margin.left - margin.right,
+                height = +svg.attr("height") - margin.top - margin.bottom,
+                g = svg.append("g").attr("transform", "translate(" + margin.left + ",-20)");
+
+            var x0 = d3.scaleBand().rangeRound([0, width]).paddingInner(0.2);
+            var x1 = d3.scaleBand().padding(0.1);
+            var y = d3.scaleLinear().rangeRound([(height / 1.75), 0]);
+            var z = d3.scaleOrdinal().range(["#093362", "#EC3D34"]);  // Two colors for before/after
+
+            var data = Object.keys(dataDict).map(function (state) {
+                return {
+                    "State": state,
+                    "values": [
+                        { "value": dataDict[state][0], "type": "Before Treatment" },
+                        { "value": dataDict[state][1], "type": "After Treatment" }
+                    ]
+                };
+            });
+
+            var categoriesNames = data.map(function (d) { return d.State; });
+            var rateNames = data[0].values.map(function (d) { return d.type; });
+
+            x0.domain(categoriesNames);
+            x1.domain(rateNames).rangeRound([0, x0.bandwidth()]);
+            y.domain([0, d3.max(data, function (categorie) {
+                return d3.max(categorie.values, function (d) { return d.value; });
+            }) * 1.2]);
+
+            g.append("g")
+                .attr("class", "grid")
+                .attr("transform", "translate(0," + (height / 7) + ")")
+                .call(d3.axisLeft(y)
+                    .tickSize(-width)
+                    .tickFormat("")
+                    .ticks(6)
+                );
+
+            var barG = g.append("g")
+                .selectAll("g")
+                .data(data)
+                .enter()
+                .append("g")
+                .attr("transform", function (d) { return "translate(" + x0(d.State) + ",0)"; });
+
+            barG.selectAll(".bars")
+                .data(function (d) { return d.values; })
+                .enter()
+                .append("rect")
+                .attr("class", "bars")
+                .attr("transform", "translate(0," + (height / 7) + ")")
+                .attr("x", function (d) { return x1(d.type); })
+                .attr("width", x1.bandwidth())
+                .attr("fill", function (d) { return z(d.type); })
+                .attr("y", function (d) { return y(d.value); })
+                .attr('height', function (d) {
+                    if (d.value > 0) { return ((height / 1.75)) - y(d.value); }
+                    else { return 0 }
+                });
+
+            g.append("g")
+                .attr("class", "x-axis axis")
+                .attr("transform", "translate(20," + (height / 1.4) + ")")
+                .call(d3.axisBottom(x0))
+                .selectAll("text")
+                .style("text-anchor", "end")
+                .attr("dx", "-.8em")
+                .attr("dy", ".15em")
+                .attr("font-weight", "normal")
+                .attr("font-size", "12px")  // Smaller font size to prevent thickening
+                .text(function (d) {
+                    if (d.length > 14) { return d.substring(0, 14) + '...'; }
+                    else { return d; }
+                });
+
+            // Adding the x-axis label
+            g.append("text")
+                .attr("class", "x-axis-label")
+                .attr("transform", "translate(" + (width / 2) + "," + (height / 1.15) + ")") // Adjust based on your height/margin
+                .style("text-anchor", "middle")
+                .attr("font-size", "16px")
+                .attr("font-weight", "bold")
+                .style("fill", "black")  // Set text color to black
+                .text("Hour");
+
+            g.append("g")
+                .attr("class", "y-axis axis")
+                .attr("transform", "translate(0," + (height / 7) + ")")
+                .call(d3.axisLeft(y).ticks(7));
+
+            g.append("text")
+                .attr("class", "y-axis-label")
+                .attr("x", -height / 2.3)
+                .attr("y", (margin.left / 4) - 40)
+                .attr("transform", "rotate(-90)")
+                .attr("text-anchor", "middle")
+                .attr("font-weight", "bold")
+                .attr("font-size", "15px")
+                .style("fill", "black")  // Set text color to black
+                .text("Production Count");
+
+        }
+
+        Get_S1();
+        Get_S2();
+        Get_S3();
+    </script>>
+</body>
+</html>
+
+<script>
+
+    $(document).ready(function () {
+        var stationNo = $("#station-no").text("stationNo");
+        var stationName = $("#station-name").text(stationName);
+        var connectedip = $("#connected ip-no").text(connectedip);
+        var model = $("#model").text(model);
+        var serialNo = $("#serial-no").text(serialNo);
+        var shift = $("#shift").text(shift);
+        var timestamp = $("#timestamp").text(timestamp);
+        var okParts = $("#ok_parts").text();
+        var nanParts = $("#nok_parts").text();
+        var takttime = $("#takt_time").text();
+        var cycletime = $("#cycle_time").text();
+        var value0 = $("#value-0").text();
+        var percent0 = $("#percent-0").text();
+        var starttime = $("#start-time-1").text();
+        var alarm1 = $("#alarm-1").text();
+
+
+        console.log("stationNo : " + stationNo);
+        console.log("stationName : " + stationName);
+        console.log("connectedip : " + connectedip); 
+        console.log("model : " + model);
+        console.log("serialNo : " + serialNo);
+        console.log("shift : " + shift);
+        console.log("timestamp : " + timestamp);
+        console.log("okParts : " + okParts);
+        console.log("nanParts : " + nanParts);
+        console.log("taktime : " + takttime);
+        console.log("cycletime : " + cycletime);
+        console.log("value0 : " + value0);
+        console.log("percent0 : " + percent0);
+        console.log("starttime : " + starttime);
+        console.log("alarm1 : " + alarm1);
+    });
+</script>
+
+
+<script>   // sanjay
+
+var main_domain = 'http://10.141.45.210:8000/'
+
+function live_data_call(){
+ var url = main_domain+'/plcDataCall/{{plc_name}}/{{station_name}}';
+fetch(url)
+        .then(response => response.json())
+        .then(data => {
+           updateChart([data.cycle_time.toFixed(2)]);
+           console.log(data.ok_parts);
+           document.getElementById('ok_parts').textContent = data.ok_parts;
+           document.getElementById('nok_parts').textContent = data.nok_parts;
+           document.getElementById('shift').textContent = data.shift;
+           document.getElementById('talk_time').textContent = data.cycle_time.toFixed(2);
+           document.getElementById('model').innerText = data.variant_name;
+           document.getElementById('station-name').textContent = data.station_name;
+           document.getElementById('timestamp').textContent = Date.now();
+
+           for (const key in data.Alms) {
+                    if (data.Alms.hasOwnProperty(key)) {
+                        console.log(`Key: ${key}, Value: ${data.Alms[key]}`);
+                        addAlarmRow(key, data.Alms[key]);
+                    }}
+         });
+}
+
+
+function addAlarmRow(startTime, alarmMessage) {
+        var tableBody = document.querySelector('#py_alms tbody');
+        var newRow = document.createElement('tr');
+        var startTimeCell = document.createElement('td');
+        startTimeCell.textContent = startTime;
+        newRow.appendChild(startTimeCell);
+        var alarmCell = document.createElement('td');
+        alarmCell.textContent = alarmMessage;
+        newRow.appendChild(alarmCell);
+        tableBody.appendChild(newRow);
+    }
+
+
+
+
+function hourly_data_call_s1(){
+console.log("hourly data call_s1");
+hourly_url = hourly_url = main_domain+'/hourlyProdCall/{{station_name}}'
+fetch(hourly_url)
+        .then(response => response.json())
+        .then(data => {
+          Get_S1("#Shift_1 svg", data);
+        });
+}
+
+function hourly_data_call_s2(){
+console.log("hourly data call_s2");
+hourly_url = hourly_url = main_domain+'/hourlyProdCall/{{station_name}}'
+fetch(hourly_url)
+        .then(response => response.json())
+        .then(data => {
+          Get_S2("#Shift_2 svg", data);
+        });
+}
+
+function hourly_data_call_s3(){
+console.log("hourly data call_s3");
+hourly_url = main_domain+'/hourlyProdCall/{{station_name}}'
+fetch(hourly_url)
+        .then(response => response.json())
+        .then(data => {
+          Get_S3("#Shift_3 svg", data);
+        });
+}
+
+live_data_call();
+hourly_data_call_s1();
+hourly_data_call_s2();
+hourly_data_call_s3();
+window.onload = function() {
+            setInterval(live_data_call, 5000); // 1000 milliseconds = 1 second
+            setInterval(hourly_data_call_s1, 5000);
+            setInterval(hourly_data_call_s2, 5000);
+            setInterval(hourly_data_call_s3, 5000);
+        };
+
+
+
+  </script>
